@@ -28,7 +28,7 @@ ECHO_MESSAGE "CYBOZU VER => ${CYBOZU_VER}"
 #Download File
 cd ${APACHE_PATH}
 bash "${APACHE_PATH}/cbof-${CYBOZU_VER}-linux.bin"<<EOF
-n
+N
 EOF
 
 }

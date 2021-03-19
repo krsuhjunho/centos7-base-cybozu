@@ -7,6 +7,7 @@ yum update -y &&\
 systemctl enable httpd; yum clean all
 
 #COPY SOURCE FILE && RUN INSTALL
+COPY cbof-10.8.5-linux.bin /var/www/cbof-10.8.5-linux.bin
 COPY RUN-INSTALL-CYBOZU.sh /usr/local/src/RUN-INSTALL-CYBOZU.sh
 RUN /usr/local/src/RUN-INSTALL-CYBOZU.sh && \
     rm -rf /usr/local/src/* 

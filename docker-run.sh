@@ -1,18 +1,16 @@
 #!/bin/bash
 
-DOCKER_CONTAINER_NAME="neo-test"
-CONTAINER_HOST_NAME="neo-test"
-SSH_PORT=22457
-HTTP_PORT=8012
-BASE_IMAGE_NAME="wnwnsgh/centos7-base-desknetsneo"
+DOCKER_CONTAINER_NAME="cybozu-test"
+CONTAINER_HOST_NAME="cybozu-test"
+SSH_PORT=22458
+HTTP_PORT=8013
+BASE_IMAGE_NAME="ghcr.io/krsuhjunho/centos7-base-cybozu"
 SERVER_IP=$(curl -s ifconfig.me)
-PC_URL="cgi-bin/dneo/dneo.cgi?"
-MOBILE_URL="cgi-bin/dneosp/dneosp.cgi"
+PC_URL="cgi-bin/cbag/ag.cgi"
 HTTP_BASE="http://"
+TODAY=$(date "+%Y-%m-%d")
+Comment="$1"
 
-docker build -t ${BASE_IMAGE_NAME} .
-
-docker rm -f ${DOCKER_CONTAINER_NAME}
 
 docker run -tid --privileged=true \
 -h "${CONTAINER_HOST_NAME}" \
@@ -24,12 +22,9 @@ docker run -tid --privileged=true \
 ${BASE_IMAGE_NAME}
 
 
-#docker exec -it ${DOCKER_CONTAINER_NAME} /bin/bash
-
+docker exec -it ${DOCKER_CONTAINER_NAME} /bin/bash /var/www/cbof-10.8.5-linux.bin
 
 echo ""
-echo "PC      URL => ${HTTP_BASE}${SERVER_IP}:${HTTP_PORT}/${PC_URL}"
-echo ""
-echo "MOBILE  URL => ${HTTP_BASE}${SERVER_IP}:${HTTP_PORT}/${MOBILE_URL}"
+echo "CYBOZU URL => ${HTTP_BASE}${SERVER_IP}:${HTTP_PORT}/${PC_URL}"
 echo ""
 

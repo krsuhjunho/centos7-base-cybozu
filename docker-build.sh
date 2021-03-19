@@ -31,8 +31,7 @@ docker run -tid --privileged=true \
 ${BASE_IMAGE_NAME}
 
 
-#docker exec -it ${DOCKER_CONTAINER_NAME} /bin/bash
-
+docker exec -it ${DOCKER_CONTAINER_NAME} /bin/bash /var/www/cbof-10.8.5-linux.bin
 
 echo ""
 echo "CYBOZU URL => ${HTTP_BASE}${SERVER_IP}:${HTTP_PORT}/${PC_URL}"

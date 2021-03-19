@@ -28,7 +28,7 @@ ECHO_MESSAGE "CYBOZU VER => ${CYBOZU_VER}"
 #Download File
 cd ${APACHE_PATH}
 wget https://download.cybozu.co.jp/office10/cbof-${CYBOZU_VER}-linux.bin 
-bash "cbof-${CYBOZU_VER}-linux.bin"
+bash "${APACHE_PATH}/cbof-${CYBOZU_VER}-linux.bin"
 }
 
 

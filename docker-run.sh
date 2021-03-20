@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #VAR
-DOCKER_CONTAINER_NAME="cybozu-test"
-CONTAINER_HOST_NAME="cybozu-test"
+DOCKER_CONTAINER_NAME="centos7-base-cybozu"
+CONTAINER_HOST_NAME="centos7-base-cybozu"
 SSH_PORT=22458
 HTTP_PORT=8013
 BASE_IMAGE_NAME="ghcr.io/krsuhjunho/centos7-base-cybozu"

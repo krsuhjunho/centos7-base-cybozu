@@ -1,22 +1,51 @@
-##BASE IMAGE
+#########################################################################
+#	Centos7-Base-Cybozu Container Image				#
+#	https://github.com/krsuhjunho/centos7-base-cybozu		#
+#	BASE IMAGE: centos7-base-systemd				#
+#########################################################################
+
 FROM ghcr.io/krsuhjunho/centos7-base-systemd
 
-##Utils Install
-RUN yum install -y httpd ld-linux.so.2 && \
-yum update -y &&\
-systemctl enable httpd; yum clean all
+#########################################################################
+#	Install && Update 						#
+#########################################################################
 
-#COPY SOURCE FILE && RUN INSTALL
+RUN yum install -y -q httpd \
+	ld-linux.so.2 && \
+	yum update -y &&\
+	systemctl enable httpd;\
+	yum clean all
+
+#########################################################################
+#	Cybozu Install File Copy					#
+#########################################################################
+
 COPY cbof-10.8.5-linux.bin /var/www/cbof-10.8.5-linux.bin
 
-##HEALTHCHECK 
+#########################################################################
+#	HEALTHCHECK 							#
+#########################################################################
+
 HEALTHCHECK --interval=30s --timeout=30s --start-period=30s --retries=3 CMD curl -f http://127.0.0.1/cgi-bin/cbag/ag.cgi || exit 1
 
-#WORKDIR SETUP
+#########################################################################
+#	WORKDIR SETUP 							#
+#########################################################################
+
 WORKDIR /var/www
 
-##PORT OPEN
+#########################################################################
+#	PORT OPEN							#
+#	SSH PORT 22 							#
+#  	HTTP PORT 80 							#
+#########################################################################
+
 EXPOSE 22
 EXPOSE 80
+
+
+#########################################################################
+#       Systemd		 	                                        #
+#########################################################################
 
 CMD ["/usr/sbin/init"]

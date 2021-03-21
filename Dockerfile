@@ -1,7 +1,7 @@
 #########################################################################
 #	Centos7-Base-Cybozu Container Image				#
 #	https://github.com/krsuhjunho/centos7-base-cybozu		#
-#	BASE IMAGE: centos7-base-systemd				#
+#	BASE IMAGE: ghcr.io/krsuhjunho/centos7-base-systemd		#
 #########################################################################
 
 FROM ghcr.io/krsuhjunho/centos7-base-systemd

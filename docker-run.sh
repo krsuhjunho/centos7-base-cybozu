@@ -75,6 +75,7 @@ MAIN()
 
 	if [ "$BUILD_OPTION" == "--build" ]; then
 		DOCKER_IMAGE_BUILD
+		DOCKER_IMAGE_TAG		
 		DOCKER_IMAGE_PUSH
 		GIT_COMMIT_PUSH
 	fi
